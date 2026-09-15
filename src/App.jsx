@@ -2,57 +2,91 @@ import { useEffect, useState } from 'react'
 
 const NAV = [
   { id: 'about', label: 'About' },
-  { id: 'experience', label: 'KOSA Experience' },
+  { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
 ]
 
 const EXPERIENCES = [
   {
-    period: '2024 — Present',
-    title: 'Frontend Developer',
-    org: 'KOSA 경력관리 등록',
-    role: '웹 프론트엔드 개발 · UI 구현',
+    title: '공공 웹 시스템 운영 / 유지관리',
     summary:
-      '사용자 흐름을 기준으로 화면을 설계하고, React 기반 인터페이스를 구현했습니다. 접근성과 반응형 레이아웃을 우선해 다양한 디바이스에서 일관된 경험을 만드는 데 집중했습니다.',
-    tags: ['React', 'JavaScript', 'Tailwind CSS'],
-    verified: true,
+      '공공 웹 서비스의 안정적인 대민 제공을 위해 장애 대응, 기능 개선, 배포 운영을 담당했습니다. 요구사항 반영과 장애 이력을 함께 정리해 서비스가 끊기지 않으면서도 지속적으로 개선되도록 유지했습니다.',
+    tags: ['시스템 운영', '유지관리', '장애 대응'],
+    icon: 'ops',
   },
   {
-    period: '2023 — 2024',
-    title: 'Web Development Training',
-    org: 'KOSA 연계 교육 과정',
-    role: '웹 개발 실무 교육 · 팀 프로젝트',
+    title: '웹 보안 취약점 조치 및 SSL 관리',
     summary:
-      'HTML/CSS/JavaScript부터 SPA 구조까지 실무 중심으로 학습하고, 팀 단위로 기획·구현·회고를 반복했습니다. 요구사항을 화면으로 옮기는 과정을 KOSA 이력에 맞춰 정리했습니다.',
-    tags: ['HTML', 'CSS', 'Git', 'Vite'],
-    verified: true,
+      '웹 취약점 진단 결과를 기준으로 점검·패치·재검증을 수행하고, SSL 인증서 발급·갱신·만료 관리로 전송 구간을 안전하게 유지했습니다. 보안 이슈가 운영 일정과 충돌하지 않도록 조치 우선순위를 정해 반영했습니다.',
+    tags: ['취약점 조치', 'SSL', '보안 운영'],
+    icon: 'security',
+  },
+  {
+    title: '공공 데이터 품질 진단 / 플랫폼 구축',
+    summary:
+      '공공기관 데이터의 정합성·완전성·일관성을 진단하고, 품질 지표와 점검 프로세스를 플랫폼으로 표준화했습니다. 수집부터 오류 추적, 개선 현황 공유까지 품질 관리 흐름을 한 화면에서 운영할 수 있게 만들었습니다.',
+    tags: ['데이터 품질', '진단 지표', '플랫폼 구축'],
+    icon: 'data',
   },
 ]
 
-const PROJECTS = [
+const projectsData = [
   {
-    title: 'roozFolio',
+    id: 'kipa-portal',
+    title: '한국행정연구원 아카이브 연동 포털 신규 구축',
     description:
-      'Brittany Chiang 스타일의 2단 레이아웃을 참고한 개인 포트폴리오. 고정 사이드바와 스크롤 메인, KOSA 경력 카드와 프로젝트 아카이브를 한 페이지에서 보여줍니다.',
-    tags: ['React', 'Vite', 'Tailwind CSS'],
-    href: 'https://github.com/roozLog',
+      'Thymeleaf 기반 프론트엔드/백엔드 구조 설계 및 아카이브 데이터 연동 개발. 챗봇 엔진 연동을 통해 대민 데이터 지능형 검색 환경 구축.',
+    imageUrl: '/kipa.png',
+    liveUrl: 'https://www.kipa.re.kr',
+    isKosaVerified: true,
+    tags: ['Java', 'Spring Boot', 'Thymeleaf', 'Archive API', 'Chatbot'],
   },
   {
-    title: 'UX-first Landing',
+    id: 'itstat-portal',
+    title: '미디어통계 포털 (ITSTAT) 대용량 통계 연동 및 유지관리',
     description:
-      '정보 위계와 여백을 중심으로 구성한 랜딩 페이지. 핵심 메시지와 CTA가 한눈에 들어오도록 타이포그래피와 컬러 대비를 조정했습니다.',
-    tags: ['React', 'CSS', 'Accessibility'],
-    href: 'https://github.com/roozLog',
+      '나라통계 API 연동을 통한 실시간 통계표 제공 및 연구자용 대용량 원시자료(CSV) 파싱·다운로드 모듈 구현. 수년간의 안정적 유지보수 수행.',
+    imageUrl: '/itstat.png',
+    liveUrl: 'https://www.itstat.go.kr/itstat/main.html',
+    isKosaVerified: true,
+    tags: ['Java', 'Spring Boot', 'Public API', 'Data Parsing', 'CSV'],
   },
   {
-    title: 'Dashboard UI',
+    id: 'gender-stat',
+    title: '성인지통계·여성가족·여성관리자 패널 통합 시스템 및 빅데이터 시각화',
     description:
-      '데이터 밀도는 유지하면서도 읽기 쉽게 정리한 대시보드 프로토타입. 카드·뱃지·필터 패턴을 재사용해 확장 가능한 컴포넌트 구조를 연습했습니다.',
-    tags: ['JavaScript', 'React', 'UI'],
-    href: 'https://github.com/roozLog',
+      '분산된 3개 패널 시스템을 단일 포털로 통합. 뉴스 빅데이터 수집/가공을 통한 카테고리별 차트 시각화 및 패널 조사 맞춤형 변수 추출/다운로드 엔진 개발.',
+    imageUrl: '/kwdi.png',
+    liveUrl: 'https://gsis.kwdi.re.kr/gsis/kr/main.html',
+    isKosaVerified: true,
+    tags: ['Java', 'Spring Boot', 'System Integration', 'BigData', 'Chart.js'],
+  },
+  {
+    id: 'kistep-platform',
+    title: '한국과학기술인재 플랫폼 전면 개편 및 운영',
+    description:
+      '국가 과학기술 인재 데이터 관리를 위한 플랫폼 전면 리뉴얼. UI/UX 개선 및 백엔드 데이터 처리 구조 최적화 후 2년간 안정적 운영 지원.',
+    imageUrl: '/kistep.png',
+    liveUrl: 'https://www.hrstpolicy.re.kr/kistep/kr/main.html',
+    isKosaVerified: true,
+    tags: ['Java', 'Spring Boot', 'System Renewal', 'UI/UX', 'Oracle'],
+  },
+  {
+    id: 'koddi-stat',
+    title: '장애통계데이터 포털 시스템 관리 및 고도화',
+    description:
+      '엄격한 웹 접근성(WA) 준수 및 고밀도 다차원 통계 데이터 검증 기준을 반영한 데이터 포털 유지관리 및 지속적 고도화 수행.',
+    imageUrl: '/koddi.png',
+    liveUrl: 'https://koddi.or.kr/stat/html/user/main/main',
+    isKosaVerified: true,
+    tags: ['Java', 'Oracle', 'Web Accessibility', 'Statistics Data'],
   },
 ]
+
+function hasValidUrl(url) {
+  return typeof url === 'string' && /^https?:\/\//i.test(url.trim())
+}
 
 const SKILL_GROUPS = [
   {
@@ -96,15 +130,74 @@ function MailIcon({ className }) {
   )
 }
 
-function ArrowIcon({ className }) {
+function DataIcon({ className }) {
   return (
-    <svg className={className} viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+      <ellipse cx="12" cy="6" rx="7" ry="2.5" strokeWidth="1.7" />
+      <path strokeWidth="1.7" d="M5 6v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6" />
+      <path strokeWidth="1.7" d="M5 12v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6" />
+    </svg>
+  )
+}
+
+function OpsIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+      <rect x="3.5" y="4.5" width="17" height="12" rx="2" strokeWidth="1.7" />
+      <path strokeWidth="1.7" strokeLinecap="round" d="M8 20h8M12 16.5V20" />
+    </svg>
+  )
+}
+
+function SecurityIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
       <path
-        fillRule="evenodd"
-        d="M5.22 14.78a.75.75 0 0 0 1.06 0l7.25-7.25a.75.75 0 0 0 0-1.06L6.28.22a.75.75 0 0 0-1.06 1.06L10.94 7 5.22 12.72a.75.75 0 0 0 0 1.06Z"
-        clipRule="evenodd"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 3.25 5.75 6v5.2c0 4.05 2.7 7.75 6.25 8.8 3.55-1.05 6.25-4.75 6.25-8.8V6L12 3.25Z"
+      />
+      <path strokeWidth="1.7" strokeLinecap="round" d="M8.8 12.2h6.4M12 9.4v5.6" />
+    </svg>
+  )
+}
+
+const EXPERIENCE_ICONS = {
+  data: DataIcon,
+  ops: OpsIcon,
+  security: SecurityIcon,
+}
+
+function ExternalLinkIcon({ className }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+      <path
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M14 5h5v5M19 5l-9 9"
+      />
+      <path
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M19 13.5V18a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 18V7.5A1.5 1.5 0 0 1 6.5 6H11"
       />
     </svg>
+  )
+}
+
+const projectLinkClassName =
+  'inline-flex items-center gap-1.5 rounded-full border border-slate/20 bg-navy-card/60 px-3 py-1.5 text-xs font-medium text-slate-light transition hover:border-mint/50 hover:text-mint'
+
+const sectionClassName = 'scroll-mt-28 mb-4 pb-16 lg:mb-6 lg:pb-24'
+
+function SectionHeading({ children }) {
+  return (
+    <h3 className="mb-8 border-b border-slate/20 pb-4 text-sm font-bold uppercase tracking-[0.2em] text-mint">
+      {children}
+    </h3>
   )
 }
 
@@ -242,10 +335,8 @@ function App() {
         </header>
 
         <main className="pt-16 lg:w-[52%] lg:py-24">
-          <section id="about" className="scroll-mt-24 mb-20 lg:mb-28" aria-label="About">
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.18em] text-slate-lightest lg:sr-only">
-              About
-            </h3>
+          <section id="about" className={sectionClassName} aria-label="About">
+            <SectionHeading>About</SectionHeading>
             <div className="space-y-4 leading-7 text-slate">
               <p>
                 사용자 인터페이스의 완성도부터 백엔드 데이터의 흐름까지, 웹 서비스 전체의 경험을
@@ -271,91 +362,123 @@ function App() {
             </div>
           </section>
 
-          <section id="experience" className="scroll-mt-24 mb-20 lg:mb-28" aria-label="KOSA Experience">
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.18em] text-slate-lightest lg:sr-only">
-              KOSA Experience
-            </h3>
-            <ol className="group/list space-y-4">
-              {EXPERIENCES.map((item) => (
-                <li key={item.title}>
-                  <article className="group relative grid gap-1 rounded-lg p-5 transition hover:bg-navy-card/60 sm:grid-cols-[7.5rem_1fr] sm:gap-6">
-                    <p className="mb-1 font-mono text-xs uppercase tracking-wide text-slate sm:mb-0">
-                      {item.period}
-                    </p>
-                    <div>
-                      <div className="flex flex-wrap items-center gap-2">
-                        <h4 className="font-semibold text-slate-lightest group-hover:text-mint">
-                          {item.title}
-                        </h4>
-                        {item.verified && (
-                          <span className="inline-flex items-center gap-1 rounded-full border border-mint/30 bg-mint/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-mint">
-                            <ShieldIcon className="h-3 w-3" />
-                            KOSA 검증
-                          </span>
-                        )}
+          <section id="experience" className={sectionClassName} aria-label="Experience">
+            <SectionHeading>Experience</SectionHeading>
+            <ul className="grid gap-4">
+              {EXPERIENCES.map((item) => {
+                const Icon = EXPERIENCE_ICONS[item.icon]
+                return (
+                  <li key={item.title}>
+                    <article className="group rounded-xl border border-slate/15 bg-navy-card/40 p-5 transition hover:border-mint/30 hover:bg-navy-card/70">
+                      <div className="flex items-start gap-4">
+                        <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-mint/20 bg-mint/10 text-mint">
+                          <Icon className="h-5 w-5" />
+                        </span>
+                        <div className="min-w-0">
+                          <h4 className="font-semibold leading-snug text-slate-lightest">
+                            {item.title}
+                          </h4>
+                          <p className="mt-2 text-sm leading-6">{item.summary}</p>
+                          <ul className="mt-4 flex flex-wrap gap-2">
+                            {item.tags.map((tag) => (
+                              <li
+                                key={tag}
+                                className="rounded-full bg-mint/10 px-3 py-1 text-xs font-medium text-mint"
+                              >
+                                {tag}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                      <p className="mt-1 text-sm text-slate-light">{item.org}</p>
-                      <p className="mt-0.5 text-sm text-slate">{item.role}</p>
-                      <p className="mt-3 text-sm leading-6">{item.summary}</p>
-                      <ul className="mt-4 flex flex-wrap gap-2">
-                        {item.tags.map((tag) => (
-                          <li
-                            key={tag}
-                            className="rounded-full bg-mint/10 px-3 py-1 text-xs font-medium text-mint"
-                          >
-                            {tag}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </article>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          <section id="projects" className="scroll-mt-24 mb-20 lg:mb-28" aria-label="Projects">
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.18em] text-slate-lightest lg:sr-only">
-              Projects
-            </h3>
-            <ul className="space-y-4">
-              {PROJECTS.map((project) => (
-                <li key={project.title}>
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group block rounded-lg p-5 transition hover:bg-navy-card/60"
-                  >
-                    <h4 className="inline-flex items-center gap-2 font-semibold text-slate-lightest group-hover:text-mint">
-                      {project.title}
-                      <ArrowIcon className="h-3 w-3 -translate-x-0.5 translate-y-0.5 rotate-[-45deg] transition group-hover:translate-x-0 group-hover:translate-y-0" />
-                    </h4>
-                    <p className="mt-2 text-sm leading-6">{project.description}</p>
-                    <ul className="mt-4 flex flex-wrap gap-2">
-                      {project.tags.map((tag) => (
-                        <li
-                          key={tag}
-                          className="rounded-full bg-mint/10 px-3 py-1 text-xs font-medium text-mint"
-                        >
-                          {tag}
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-slate-light">
-                      <GithubIcon className="h-3.5 w-3.5" />
-                      GitHub
-                    </p>
-                  </a>
-                </li>
-              ))}
+                    </article>
+                  </li>
+                )
+              })}
             </ul>
           </section>
 
-          <section id="skills" className="scroll-mt-24 mb-16" aria-label="Skills">
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.18em] text-slate-lightest lg:sr-only">
-              Skills
-            </h3>
+          <section id="projects" className={sectionClassName} aria-label="Projects">
+            <SectionHeading>Projects</SectionHeading>
+            <ul className="space-y-4">
+              {projectsData.map((project) => {
+                const canVisitLive = hasValidUrl(project.liveUrl)
+                const thumbnail = (
+                  <img
+                    src={project.imageUrl}
+                    alt={`${project.title} 미리보기`}
+                    className="h-28 w-full rounded-md object-cover shadow-[0_0_24px_rgba(100,255,218,0.08)] transition duration-300 group-hover:scale-[1.03] sm:h-32 sm:w-36 sm:shrink-0"
+                  />
+                )
+
+                return (
+                  <li key={project.id}>
+                    <article className="group rounded-xl border border-slate/15 bg-navy-card/40 p-4 transition duration-300 hover:border-mint/35 hover:bg-navy-card/70 sm:p-5">
+                      <div className="flex flex-col gap-2.5">
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-5">
+                          {canVisitLive ? (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="block overflow-hidden rounded-md sm:shrink-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mint"
+                              aria-label={`${project.title} 서비스 방문`}
+                            >
+                              {thumbnail}
+                            </a>
+                          ) : (
+                            <div className="overflow-hidden rounded-md sm:shrink-0">{thumbnail}</div>
+                          )}
+
+                          <div className="flex min-w-0 flex-1 flex-col gap-2.5">
+                            <h4 className="font-semibold leading-snug text-slate-lightest">
+                              {project.title}
+                            </h4>
+
+                            <div className="flex flex-row flex-wrap items-center gap-2">
+                              {project.isKosaVerified && (
+                                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-sky-400/25 bg-sky-500/10 px-3 py-1.5 text-xs font-medium text-sky-300">
+                                  <ShieldIcon className="h-3.5 w-3.5" />
+                                  KOSA 검증
+                                </span>
+                              )}
+                              {canVisitLive && (
+                                <a
+                                  href={project.liveUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className={projectLinkClassName}
+                                >
+                                  <ExternalLinkIcon className="h-3.5 w-3.5" />
+                                  서비스 바로가기
+                                </a>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+
+                        <p className="text-sm leading-6 text-slate-light">{project.description}</p>
+
+                        <ul className="flex flex-wrap gap-2">
+                          {project.tags.map((tag) => (
+                            <li
+                              key={tag}
+                              className="rounded-full border border-mint/30 bg-transparent px-3 py-1 text-xs font-medium text-mint"
+                            >
+                              {tag}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </article>
+                  </li>
+                )
+              })}
+            </ul>
+          </section>
+
+          <section id="skills" className={sectionClassName} aria-label="Skills">
+            <SectionHeading>Skills</SectionHeading>
             <div className="space-y-8">
               {SKILL_GROUPS.map((group) => (
                 <div key={group.label}>
@@ -377,20 +500,7 @@ function App() {
             </div>
           </section>
 
-          <footer className="max-w-md pb-8 text-sm leading-6 text-slate">
-            <p>
-              레이아웃은{' '}
-              <a
-                className="text-slate-lightest underline decoration-slate/40 underline-offset-4 hover:text-mint"
-                href="https://brittanychiang.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Brittany Chiang
-              </a>
-              의 포트폴리오에서 영감을 받았습니다. 경력 카드의 기간·역할은 실제 KOSA 등록 내용에
-              맞게 수정해 사용하세요.
-            </p>
+          <footer className="max-w-md border-t border-slate/15 pt-10 pb-8 text-sm leading-6 text-slate">
           </footer>
         </main>
       </div>
