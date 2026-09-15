@@ -1,16 +1,15 @@
-# React + Vite
+# 8년 차 풀스택 개발자 포트폴리오
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+안녕하세요! 자바 및 공공 데이터/통계 시스템 전문 8년 차 풀스택 개발자 포트폴리오 웹사이트입니다.
 
-Currently, two official plugins are available:
+## 🛠 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Backend**: Java, Spring Boot, Spring MVC, eGovFrame, MyBatis, iBATIS
+- **Frontend**: React, JavaScript, HTML, CSS, Tailwind CSS, rMate Chart
+- **Database & Tools**: Oracle, MariaDB, MySQL, Eclipse, IntelliJ IDEA, Cursor AI, Git, GitHub
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🌟 Key Features
+- 개인 경력 및 핵심 역량 소개
+- 보유 기술 스택 태그 기반 시각화
+- 주요 수행 프로젝트 상세 내역 및 성과 정리
+- 이메일 클립보드 복사 기능 및 지원서/이력서(PDF) 즉시 다운로드 기능
