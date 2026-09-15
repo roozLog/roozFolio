@@ -371,7 +371,7 @@ function App() {
               </a>
             </li>
             <li>
-              <a href="/resume.pdf" download className={contactLinkClassName}>
+              <a href="/resume.pdf" download="이슬_이력서.pdf" className={contactLinkClassName}>
                 <DownloadIcon className="h-4 w-4" />
                 Resume
               </a>
