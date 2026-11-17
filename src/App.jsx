@@ -284,7 +284,7 @@ function App() {
       <div className="relative z-10 mx-auto min-h-svh max-w-6xl px-6 py-12 md:px-12 md:py-16 lg:flex lg:gap-4 lg:px-24 lg:py-0">
         <header className="lg:sticky lg:top-0 lg:flex lg:max-h-svh lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
           <div>
-            <div className="flex items-center justify-between gap-5">
+            <div className="flex items-center gap-5 sm:gap-24 lg:gap-36">
               <div className="min-w-0">
                 <p className="mb-3 font-mono text-sm tracking-widest text-mint">Hi, I&apos;m</p>
                 <h1 className="text-4xl font-extrabold tracking-tight text-slate-lightest sm:text-5xl">
