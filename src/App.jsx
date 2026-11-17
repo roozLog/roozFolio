@@ -270,7 +270,7 @@ function App() {
 
   return (
     <div
-      className="relative min-h-svh bg-navy text-slate"
+      className="relative min-h-svh break-keep bg-navy text-slate"
       onMouseMove={(event) => setSpotlight({ x: event.clientX, y: event.clientY })}
     >
       <div
@@ -284,7 +284,7 @@ function App() {
       <div className="relative z-10 mx-auto min-h-svh max-w-6xl px-6 py-12 md:px-12 md:py-16 lg:flex lg:gap-4 lg:px-24 lg:py-0">
         <header className="lg:sticky lg:top-0 lg:flex lg:max-h-svh lg:w-[48%] lg:flex-col lg:justify-between lg:py-24">
           <div>
-            <div className="flex items-center gap-5 sm:gap-30">
+            <div className="flex items-center justify-between gap-5">
               <div className="min-w-0">
                 <p className="mb-3 font-mono text-sm tracking-widest text-mint">Hi, I&apos;m</p>
                 <h1 className="text-4xl font-extrabold tracking-tight text-slate-lightest sm:text-5xl">
@@ -300,12 +300,13 @@ function App() {
                 className="h-28 w-28 shrink-0 rounded-full border-2 border-emerald-400/30 object-cover object-[50%_0%] shadow-[0_0_28px_rgba(100,255,218,0.12)]"
               />
             </div>
-            <div className="mt-6 w-min max-w-full">
-              <h2 className="whitespace-nowrap text-lg font-medium text-slate-lightest sm:text-xl">
-                Full Stack Developer | Full Stack Engineer
+            <div className="mt-6 max-w-full">
+              <h2 className="text-lg font-medium text-slate-lightest sm:text-xl">
+                Full Stack Developer
               </h2>
               <p className="mt-5 leading-relaxed text-slate">
-                사용자 경험(UX)과 서버 성능, 데이터 아키텍처를 함께 고민하며 개발합니다.
+                공공 통계·데이터 시스템을 8년째 만든 Java/Spring 개발자, React와 AI 도구로 개발
+                범위를 넓히고 있습니다.
               </p>
             </div>
 
@@ -392,8 +393,8 @@ function App() {
                 않고 개발해 왔습니다.
               </p>
               <p>
-                요즘은 React와 Claude Code를 공부하고 있습니다. 이 포트폴리오도 React로 만들었고,
-                Cursor AI와 Claude Code를 작업에 직접 쓰고 있습니다.
+                React로 화면을 만들 수 있고, Cursor AI와 Claude Code 같은 AI 도구를 개발에 활용합니다.
+                이 포트폴리오도 React로 직접 만들었고, 요즘은 두 가지를 더 깊이 공부하고 있습니다.
               </p>
               <p>
                 모든 경력과 프로젝트 수행 이력은 한국인공지능소프트웨어산업협회(구 한국소프트웨어산업협회, KOSA) 경력관리 체계를 통해
