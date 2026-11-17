@@ -9,31 +9,43 @@ const NAV = [
 
 const EXPERIENCES = [
   {
-    title: '공공 웹 시스템 운영 / 유지관리',
-    summary:
-      '공공 웹 서비스의 안정적인 대민 제공을 위해 장애 대응, 기능 개선, 배포 운영을 담당했습니다. 요구사항 반영과 장애 이력을 함께 정리해 서비스가 끊기지 않으면서도 지속적으로 개선되도록 유지했습니다.',
-    tags: ['시스템 운영', '유지관리', '장애 대응'],
-    icon: 'ops',
+    company: '큐어소프트',
+    role: '대리',
+    period: '2023.04 ~ 2026.05',
+    points: [
+      'ITSTAT·미디어통계포털(KISDI STAT) 기능개선 및 유지보수',
+      '성인지통계, 성평등 지식플랫폼, 장애통계데이터 아카이브, 과학기술인재정책플랫폼 유지·고도화',
+      '한국행정연구원 AI 기반 지식관리 웹플랫폼 구축',
+      '웹 취약점 조치, SSL 인증서 관리, 공공 데이터 품질 진단을 담당 프로젝트 전반에서 수행',
+    ],
+    tags: ['Java', 'Spring Boot', 'Thymeleaf', 'Oracle'],
   },
   {
-    title: '웹 보안 취약점 조치 및 SSL 관리',
-    summary:
-      '웹 취약점 진단 결과를 기준으로 점검·패치·재검증을 수행하고, SSL 인증서 발급·갱신·만료 관리로 전송 구간을 안전하게 유지했습니다. 보안 이슈가 운영 일정과 충돌하지 않도록 조치 우선순위를 정해 반영했습니다.',
-    tags: ['취약점 조치', 'SSL', '보안 운영'],
-    icon: 'security',
+    company: '누림소프트',
+    role: '사원 · 대리',
+    period: '2019.05 ~ 2023.03',
+    points: [
+      'ITSTAT 정보시스템 개발, 기능개선 및 유지보수',
+      '성인지통계 시스템 개선·관리, 과학기술인재정책플랫폼 유지·보수 및 기능 고도화',
+      '통계청 나라통계시스템 위탁운영 및 유지관리',
+      '웹 취약점 조치, SSL 인증서 관리, 공공 데이터 품질 진단을 담당 프로젝트 전반에서 수행',
+    ],
+    tags: ['Java', 'Spring MVC', 'eGovFrame', 'Oracle'],
   },
   {
-    title: '공공 데이터 품질 진단 / 플랫폼 구축',
-    summary:
-      '공공기관 데이터의 정합성·완전성·일관성을 진단하고, 품질 지표와 점검 프로세스를 플랫폼으로 표준화했습니다. 수집부터 오류 추적, 개선 현황 공유까지 품질 관리 흐름을 한 화면에서 운영할 수 있게 만들었습니다.',
-    tags: ['데이터 품질', '진단 지표', '플랫폼 구축'],
-    icon: 'data',
+    company: '아크루즈',
+    role: '사원',
+    period: '2016.11 ~ 2017.09',
+    points: ['IDC 관제시스템 구축, V3 방문객 포털 시스템 개발'],
+    tags: ['Java'],
   },
 ]
 
 const projectsData = [
   {
     id: 'kipa-portal',
+    client: '한국행정연구원',
+    period: '2025.01 ~ 2025.05',
     title: '한국행정연구원 AI 챗봇 연동 및 아카이브 포털 신규 구축',
     description:
       'Thymeleaf 기반 아키텍처 설계 및 프론트/백엔드 통합 개발. 외부 아카이브 연동으로 대규모 행정 데이터 수집 환경을 구축하고, AI 챗봇 엔진을 연동해 지능형 데이터 응답 인터페이스를 구현했습니다.',
@@ -44,9 +56,11 @@ const projectsData = [
   },
   {
     id: 'itstat-portal',
+    client: '정보통신정책연구원',
+    period: '2020.05 ~ 2026.05 (기능개선·유지보수 사업 연속 수행)',
     title: '미디어통계포털 및 ITSTAT 대용량 통계 연동 및 유지관리',
     description:
-      '미디어통계포털 및 ITSTAT 시스템 신규 개발 참여 후 3~4년간 전담 유지보수 수행. 나라통계 API 연동 및 대용량 원시자료(CSV) 파싱·다운로드 엔진을 구축하여 서비스 안정성을 극대화했습니다.',
+      '미디어통계포털 및 ITSTAT 시스템 신규 개발 참여 후 약 6년간 전담 유지보수 수행. 나라통계 API 연동 및 대용량 원시자료(CSV) 파싱·다운로드 엔진을 구축하여 서비스 안정성을 극대화했습니다.',
     imageUrl: '/itstat.png',
     liveUrl: 'https://www.itstat.go.kr/itstat/main.html',
     isKosaVerified: true,
@@ -54,6 +68,8 @@ const projectsData = [
   },
   {
     id: 'gender-stat',
+    client: '한국여성정책연구원',
+    period: '2019.06 ~ 2025.12 (시스템 개선·관리 사업 연속 수행)',
     title: '성인지통계·여성가족패널·여성관리자패널 시스템 통합 및 빅데이터 시각화',
     description:
       '분산된 3개 패널 시스템 통합 및 리뉴얼 구축. 뉴스 빅데이터 수집·가공 기반 차트 시각화 및 패널 데이터 맞춤형 동적 변수 추출 다운로드 모듈을 개발하고 지속적인 고도화를 수행했습니다.',
@@ -64,6 +80,8 @@ const projectsData = [
   },
   {
     id: 'kistep-platform',
+    client: '한국과학기술기획평가원',
+    period: '2021.11 ~ 2024.10 (유지·보수 및 기능 고도화 사업 연속 수행)',
     title: '한국과학기술인재정책플랫폼 리뉴얼 및 고도화',
     description:
       '국가 과학기술인재 정책 데이터 통합 및 전면 리뉴얼 구축. 사용자 중심 UI/UX 개선과 정책·통계 검색 엔진 고도화를 진행하였으며, 이후 2년간 안정화 및 기능 고도화를 전담했습니다.',
@@ -74,6 +92,8 @@ const projectsData = [
   },
   {
     id: 'koddi-stat',
+    client: '한국장애인개발원',
+    period: '2023.09 ~ 2024.05',
     title: '장애통계데이터 포털 구축 지원 및 유지관리',
     description:
       '국가 승인 통계·패널 조사의 인포그래픽 및 데이터 시각화 포털 구축 지원. 대국민 통계 데이터 다운로드 성능 최적화와 함께 웹 접근성(WA) 및 공공 데이터 품질 지침을 엄격히 반영한 유지관리 수행.',
@@ -122,6 +142,10 @@ const SKILL_GROUPS = [
       'GitHub',
     ],
   },
+  {
+    label: 'Certification',
+    items: ['SQLD (SQL 개발자, 2026.03 취득)'],
+  },
 ]
 
 function GithubIcon({ className }) {
@@ -166,45 +190,6 @@ function DownloadIcon({ className }) {
       />
     </svg>
   )
-}
-
-function DataIcon({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-      <ellipse cx="12" cy="6" rx="7" ry="2.5" strokeWidth="1.7" />
-      <path strokeWidth="1.7" d="M5 6v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6" />
-      <path strokeWidth="1.7" d="M5 12v6c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-6" />
-    </svg>
-  )
-}
-
-function OpsIcon({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-      <rect x="3.5" y="4.5" width="17" height="12" rx="2" strokeWidth="1.7" />
-      <path strokeWidth="1.7" strokeLinecap="round" d="M8 20h8M12 16.5V20" />
-    </svg>
-  )
-}
-
-function SecurityIcon({ className }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-      <path
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 3.25 5.75 6v5.2c0 4.05 2.7 7.75 6.25 8.8 3.55-1.05 6.25-4.75 6.25-8.8V6L12 3.25Z"
-      />
-      <path strokeWidth="1.7" strokeLinecap="round" d="M8.8 12.2h6.4M12 9.4v5.6" />
-    </svg>
-  )
-}
-
-const EXPERIENCE_ICONS = {
-  data: DataIcon,
-  ops: OpsIcon,
-  security: SecurityIcon,
 }
 
 function ExternalLinkIcon({ className }) {
@@ -390,24 +375,28 @@ function App() {
             <SectionHeading>About</SectionHeading>
             <div className="space-y-4 leading-7 text-slate">
               <p>
-                사용자 인터페이스의 완성도부터 백엔드 데이터의 흐름까지, 웹 서비스 전체의 경험을
-                설계합니다.
+                2016년부터 Java와 Spring 기반으로 웹 서비스를 만들어 왔고, 2019년 이후로는 공공
+                통계·데이터 포털을 주로 맡았습니다. 정보통신정책연구원, 한국여성정책연구원,
+                한국과학기술기획평가원 같은 기관의 시스템을 신규 구축부터 개선, 운영까지 이어서
+                담당했습니다.
               </p>
               <p>
-                Java와 Spring Boot 등 검증된 백엔드 기술 프레임워크와 안정적인 서버 아키텍처를
-                바탕으로 직관적이고 재사용 가능한 UI 컴포넌트를 결합하여, 확장성과 유지보수성이
-                뛰어난 시스템을 구축하는 것을 좋아합니다.
+                ITSTAT은 신규 개발에 참여한 뒤 약 6년째 유지보수를 하고 있고, 성인지통계는 따로
+                운영되던 패널 시스템 세 개를 하나로 합쳤습니다. 한 시스템을 오래 맡다 보니 장애가
+                났을 때 원인을 빨리 찾고, 다음 담당자가 읽기 쉬운 코드를 남기는 일을 중요하게
+                생각합니다.
               </p>
               <p>
-                프론트엔드의 세심한 UX부터 백엔드 데이터베이스 설계 및 RESTful API 구축까지, 웹
-                서비스의 전체 여정을 End-to-End로 설계하고 개발합니다.
+                백엔드와 DB를 주로 다루지만 화면 작업도 직접 합니다. 통계 데이터를 차트와 다운로드로
+                보여 주는 화면, 대용량 CSV 처리, 외부 API와 챗봇 연동까지 필요한 부분은 가리지
+                않고 개발해 왔습니다.
               </p>
               <p>
-                작은 반응형 화면부터 고성능 서버 처리까지 데이터가 흐르는 모든 구간의 성능과 확장성을
-                균형 있게 챙기는 것을 좋아합니다.
+                요즘은 React와 Claude Code를 공부하고 있습니다. 이 포트폴리오도 React로 만들었고,
+                Cursor AI와 Claude Code를 작업에 직접 쓰고 있습니다.
               </p>
               <p>
-                모든 경력과 프로젝트 수행 이력은 KOSA(한국소프트웨어산업협회) 경력관리 체계를 통해
+                모든 경력과 프로젝트 수행 이력은 한국인공지능소프트웨어산업협회(구 한국소프트웨어산업협회, KOSA) 경력관리 체계를 통해
                 투명하고 검증 가능한 데이터로 관리하고 있습니다.
               </p>
             </div>
@@ -416,36 +405,35 @@ function App() {
           <section id="experience" className={sectionClassName} aria-label="Experience">
             <SectionHeading>Experience</SectionHeading>
             <ul className="grid gap-4">
-              {EXPERIENCES.map((item) => {
-                const Icon = EXPERIENCE_ICONS[item.icon]
-                return (
-                  <li key={item.title}>
-                    <article className="group rounded-xl border border-slate/15 bg-navy-card/40 p-5 transition hover:border-mint/30 hover:bg-navy-card/70">
-                      <div className="flex items-start gap-4">
-                        <span className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-mint/20 bg-mint/10 text-mint">
-                          <Icon className="h-5 w-5" />
-                        </span>
-                        <div className="min-w-0">
-                          <h4 className="font-semibold leading-snug text-slate-lightest">
-                            {item.title}
-                          </h4>
-                          <p className="mt-2 text-sm leading-6">{item.summary}</p>
-                          <ul className="mt-4 flex flex-wrap gap-2">
-                            {item.tags.map((tag) => (
-                              <li
-                                key={tag}
-                                className="rounded-full bg-mint/10 px-3 py-1 text-xs font-medium text-mint"
-                              >
-                                {tag}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </article>
-                  </li>
-                )
-              })}
+              {EXPERIENCES.map((item) => (
+                <li key={item.company}>
+                  <article className="group rounded-xl border border-slate/15 bg-navy-card/40 p-5 transition hover:border-mint/30 hover:bg-navy-card/70">
+                    <p className="font-mono text-xs tracking-wide text-mint">{item.period}</p>
+                    <h4 className="mt-1 font-semibold leading-snug text-slate-lightest">
+                      {item.company}
+                      <span className="ml-2 text-sm font-normal text-slate-light">{item.role}</span>
+                    </h4>
+                    <ul className="mt-3 space-y-1.5 text-sm leading-6">
+                      {item.points.map((point) => (
+                        <li key={point} className="flex gap-2">
+                          <span className="mt-2.5 h-px w-3 shrink-0 bg-mint/60" aria-hidden="true" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <ul className="mt-4 flex flex-wrap gap-2">
+                      {item.tags.map((tag) => (
+                        <li
+                          key={tag}
+                          className="rounded-full bg-mint/10 px-3 py-1 text-xs font-medium text-mint"
+                        >
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  </article>
+                </li>
+              ))}
             </ul>
           </section>
 
@@ -485,6 +473,9 @@ function App() {
                             <h4 className="font-semibold leading-snug text-slate-lightest">
                               {project.title}
                             </h4>
+                            <p className="text-xs leading-5 text-slate">
+                              {project.client} · {project.period}
+                            </p>
 
                             <div className="flex flex-row flex-wrap items-center gap-2">
                               {project.isKosaVerified && (
